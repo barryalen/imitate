@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <button @click="test">test</button>
+    <div class="test"></div>
   </div>
 </template>
 
@@ -45,4 +46,10 @@ li {
 a {
   color: #42b983;
 }
+  .test{
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+    border-radius: 50%;
+  }
 </style>

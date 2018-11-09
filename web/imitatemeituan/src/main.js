@@ -3,11 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import global from './Global'
 import Axios from 'axios'
+import Footer from './components/Footer'
+import Mint from 'mint-ui'
+import '../static/lib/mui/css/mui.css'
+import '../node_modules/mint-ui/lib/style.css'
 
+Vue.use(Mint)
 var instance = Axios.create({
-  baseURL: global.baseURL
+  baseURL: 'http://localhost:8888'
 })
 // axios.defaults.baseUrl = global.baseURL
 // Axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
@@ -17,14 +21,13 @@ Vue.prototype.$axios = instance
 
 Vue.config.productionTip = false
 
+// 全局组件
+Vue.component('footerVue', Footer)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>',
-  created () {
-    // console.log(axios.defaults)
-    this.$axios.get('/get').then(res => { console.log(res) })
-  }
+  template: '<App/>'
 })
