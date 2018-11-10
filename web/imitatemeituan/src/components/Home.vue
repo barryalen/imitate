@@ -20,8 +20,8 @@
       <ul class="mui-table-view mui-grid-view mui-grid-9">
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a href="">
-            <div class="pic"><img src="../../static/images/meishi.jpg" alt=""></div>
-            <div class="mui-media-body">美食</div>
+            <div class="pic"><img src="../../static/images/waimai.jpg" alt=""></div>
+            <div class="mui-media-body">外卖</div>
           </a>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -32,8 +32,8 @@
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a href="">
-            <div class="pic"><img src="../../static/images/waimai.jpg" alt=""></div>
-            <div class="mui-media-body">外卖</div>
+            <div class="pic"><img src="../../static/images/meishi.jpg" alt=""></div>
+            <div class="mui-media-body">美食</div>
           </a>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -43,10 +43,10 @@
           </a>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a href="">
+          <router-link :to="'/home/newsList'">
             <div class="pic"><img src="../../static/images/meishi.jpg" alt=""></div>
-            <div class="mui-media-body">美食</div>
-          </a>
+            <div class="mui-media-body">新闻</div>
+          </router-link>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a href="">
@@ -67,39 +67,6 @@
           </a>
         </li>
       </ul>
-
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">-->
-          <!--<a href="#">-->
-          <!--&lt;!&ndash;<span class="mui-icon mui-icon-home"></span>&ndash;&gt;-->
-            <!--<img src="../../static/images/meishi.jpg" alt="">-->
-            <!--<div class="mui-media-body">Home</div>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">-->
-          <!--<span class="mui-icon mui-icon-email"></span>-->
-          <!--<div class="mui-media-body">Email</div></a></li>-->
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">-->
-          <!--<span class="mui-icon mui-icon-chatbubble"></span>-->
-          <!--<div class="mui-media-body">Chat</div></a></li>-->
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">-->
-          <!--<span class="mui-icon mui-icon-location"></span>-->
-          <!--<div class="mui-media-body">location</div></a></li>-->
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">-->
-          <!--<span class="mui-icon mui-icon-search"></span>-->
-          <!--<div class="mui-media-body">Search</div></a></li>-->
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">-->
-          <!--<span class="mui-icon mui-icon-phone"></span>-->
-          <!--<div class="mui-media-body">Phone</div></a></li>-->
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">-->
-          <!--<span class="mui-icon mui-icon-gear"></span>-->
-          <!--<div class="mui-media-body">Setting</div></a></li>-->
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">-->
-          <!--<span class="mui-icon mui-icon-info"></span>-->
-          <!--<div class="mui-media-body">about</div></a></li>-->
-        <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">-->
-          <!--<span class="mui-icon mui-icon-more"></span>-->
-          <!--<div class="mui-media-body">more</div></a></li>-->
-
     </div>
     <div class="today">
       <div><h3>今日推荐</h3></div>
