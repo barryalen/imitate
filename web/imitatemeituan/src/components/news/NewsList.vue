@@ -8,7 +8,7 @@
       <div class="newsList" >
         <ul class="mui-table-view" v-for="(news, index) in newsList" :key="index">
           <li class="mui-table-view-cell mui-media">
-            <router-link :to="'/home/newsDetail?id=' + news.newsId">
+            <router-link :to="'/home/newsDetail/' + news.newsId">
               <img class="mui-media-object mui-pull-left" :src="news.newsImg">
               <div class="mui-media-body">
                 <p class="mui-ellipsis">{{news.title}}</p>
@@ -39,7 +39,6 @@ export default {
     // http://api.shujuzhihui.cn/api/news/list
     this.$axios.get('http://api.shujuzhihui.cn/api/news/list?appKey=c60d176c33e64f25894f87f8f777e382')
       .then(res => {
-        console.log(res.data.RESULT.newsList)
         this.newsList = res.data.RESULT.newsList
       })
       .catch(err => { console.log(err) })

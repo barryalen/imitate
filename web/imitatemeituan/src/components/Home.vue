@@ -99,7 +99,6 @@ export default {
     this.$axios.get('/storeList')
       .then(res => {
         this.todayListItems = res.data
-        console.log(this.todayListItems)
       })
       .catch(err => { console.log(err) })
   }

@@ -3,6 +3,7 @@ var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/meituan')
 
 var Schema = mongoose.Schema
+
 var storeSchema = mongoose.Schema({
     picAddr: {
         type: String,
