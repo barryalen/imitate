@@ -2,6 +2,7 @@
   <div class="hello">
     <button @click="test">test</button>
     <div class="test"></div>
+    <p>{{$store.state.test}}</p>
   </div>
 </template>
 

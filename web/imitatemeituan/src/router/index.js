@@ -12,7 +12,7 @@ import Comments from '../components/Comments'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {path: '/', redirect: '/home'},
     {path: '/home', component: Home},
@@ -41,3 +41,12 @@ export default new Router({
     }
   ]
 })
+
+// router.beforeEach((to, from, next) => {
+//   console.log(sessionStorage)
+//   console.log(from.path)
+//   console.log(to.meta)
+//   console.log(to.path)
+//   next()
+// })
+export default router

@@ -1,13 +1,14 @@
 var express = require('express')
 var storeSchema = require('./model/store')
 var commentSchema = require('./model/comments')
+var userSchema = require('./model/user')
 
 var router = express.Router()
 
 
 router.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")
-    res.header("Access-Control-Allow-Headers", "X-Requested-With")
+    res.header("Access-Control-Allow-Headers", "*")
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS")
     res.header("X-Powered-By", ' 3.2.1')
     res.header("Content-Type", "application/json;charset=utf-8")
@@ -22,6 +23,7 @@ router.get('/storeList', function (req, res) {
     })
 
 })
+
 // 获取评论内容
 router.get('/commentsList', function (req, res) {
     commentSchema.find({c_id: req.query.id}, function (err, ret) {
@@ -44,19 +46,25 @@ router.get('/addContent', function (req, res) {
     })
 })
 
+// 注册
+router.post('/register', function (req, res) {
+    userSchema.findById({userName: req.body.userName}, function (err, ret) {
+        if (err) return res.end('用户名不可用')
+        res.end('success')
+    })
+})
+
 router.get('/', function (req, res) {
     res.render('test.html')
 })
 
 router.get('/add', function (req, res) {
-    // new commentSchema({
-    //     c_id: 'c7aee554f7755eef9db7e90c286cc4a3',
-    //     c_name: '李四',
-    //     c_content: '发人深省',
-    //     c_good: 0,
-    //     c_data: '2018-11-09 12:30:28'
+    // new userSchema({
+    //     userName: 'lisi',
+    //     password: '123456',
+    //     email: '111@qq.com'
     // }).save()
-    console.log('test')
+    // console.log('test')
     res.render('test.html')
 })
 

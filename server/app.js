@@ -1,9 +1,12 @@
 var express = require('express')
 var path = require('path')
 var router = require('./router')
+var bodyParser = require('body-parser')
 
 var app = express()
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 // 配置模板引擎
 app.engine('html', require('express-art-template'))
 
