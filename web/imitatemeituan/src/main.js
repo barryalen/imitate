@@ -17,7 +17,13 @@ Vue.use(Vuex)
 
 let store = new Vuex.Store({
   state: {
-    test: 3
+    test: 3,
+    loginStatus: '/login'
+  },
+  setter: {
+    changeLoginStatus () {
+      this.loginStatus = '/home/mine'
+    }
   }
 })
 var instance = Axios.create({

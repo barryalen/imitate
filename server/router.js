@@ -34,7 +34,6 @@ router.get('/commentsList', function (req, res) {
 
 // 添加评论内容
 router.get('/addContent', function (req, res) {
-    console.log(req.query)
     new commentSchema({
         c_id: req.query.id,
         c_name: req.query.name,
@@ -46,11 +45,44 @@ router.get('/addContent', function (req, res) {
     })
 })
 
+// 登录
+router.post('/login', function (req, res) {
+    console.log(req.body)
+    userSchema.find(req.body, function (err, ret) {
+        if (err) return res.end(res.status(500).send('server error'))
+        if (ret.length === 0) {
+            res.end('0')
+        } else {
+            // req.session.user = ret
+            res.end('1')
+        }
+    })
+})
+
 // 注册
 router.post('/register', function (req, res) {
-    userSchema.findById({userName: req.body.userName}, function (err, ret) {
-        if (err) return res.end('用户名不可用')
-        res.end('success')
+    console.log(req.body)
+    userSchema.find({userName: req.body.userName}, function (err, ret) {
+        if (err) return res.end(res.status(501).send('server error'))
+        console.log(ret)
+        if (ret.length !== 0) {
+            res.end('-1')
+        } else {
+            if (req.body.userName !== '' && req.body.password !== '' && req.body.email !== '') {
+                userSchema.find({email: req.body.email}, function (err, ret) {
+                    if (err) return res.end(res.status(501).send('server error'))
+                    if (ret.length !== 0) {
+                        res.end('0')
+                    } else {
+                        new userSchema(req.body).save(function (err) {
+                            res.end('1')
+                        })
+                    }
+                })
+            } else {
+                res.end('2')
+            }
+        }
     })
 })
 

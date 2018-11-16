@@ -9,6 +9,7 @@
         <form>
           <label for="">
             用户名：<input type="text" v-model="userName">
+            <p v-if="flag">用户名已存在</p>
           </label>
           <label for="">
             密码：<input type="password" v-model="password">
@@ -27,24 +28,25 @@
 </template>
 
 <script>
+import { Toast } from 'mint-ui'
 export default {
   data () {
     return {
+      userName: '',
       password: '',
       passwordConform: '',
-      email: ''
+      email: '',
+      flag: false
     }
   },
-  computed: {
-    userName: function () {
-      console.log(this.userName)
-      // this.register()
-      return this.userName
+  watch: {
+    userName: function (cVal, oVal) {
+      this.registerConnect()
     }
   },
   methods: {
-    register () {
-      console.log('test')
+    registerConnect () {
+      var _this = this
       this.$axios.post('/register', {
         userName: this.userName,
         password: this.password,
@@ -53,11 +55,57 @@ export default {
       }, {
         headers: {'Content-Type': 'application/json'}
       }).then(function (res) {
-        console.log(res)
+        if (res.data === -1) {
+          _this.flag = !_this.flag
+        } else if (res.data === 2) {
+          _this.flag = false
+        } else if (res.data === 0) {
+          Toast({
+            message: '邮箱已被注册',
+            position: 'top',
+            duration: 1000
+          })
+        } else if (res.data === 1) {
+          Toast({
+            message: '注册成功',
+            position: 'top',
+            duration: 1000
+          })
+          _this.$router.push('/login')
+        }
       })
         .catch(function (error) {
           console.log(error)
         })
+    },
+    register () {
+      if (this.userName === '') {
+        Toast({
+          message: '用户名不能为空',
+          position: 'top',
+          duration: 1000
+        })
+      } else if (this.password === '') {
+        Toast({
+          message: '密码不能为空',
+          position: 'top',
+          duration: 1000
+        })
+      } else if (this.password !== this.passwordConform) {
+        Toast({
+          message: '密码不一致',
+          position: 'top',
+          duration: 1000
+        })
+      } else if (this.email === '') {
+        Toast({
+          message: '邮箱不能为空',
+          position: 'top',
+          duration: 1000
+        })
+      } else {
+        this.registerConnect()
+      }
     }
   }
 }

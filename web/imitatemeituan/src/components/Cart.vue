@@ -1,5 +1,7 @@
 <template>
-    <div>cart page</div>
+  <div>cart page
+    <footer-vue></footer-vue>
+  </div>
 </template>
 
 <script>

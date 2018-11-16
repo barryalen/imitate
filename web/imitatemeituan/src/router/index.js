@@ -9,6 +9,8 @@ import NewsList from '../components/news/NewsList'
 import NewsDetail from '../components/news/NewsDetail'
 // import NewsFooter from '../components/news/NewsFooter'
 import Comments from '../components/Comments'
+import Mine from '../components/Mine'
+import Password from '../components/Password'
 
 Vue.use(Router)
 
@@ -19,21 +21,11 @@ const router = new Router({
     {path: '/home/newsList', component: NewsList},
     {path: '/home/newsDetail/:id', component: NewsDetail},
     {path: '/home/comments', component: Comments},
-    {
-      path: '/register',
-      name: 'register',
-      component: Register
-    },
-    {
-      path: '/cart',
-      name: 'cart',
-      component: Cart
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    },
+    {path: '/home/mine', component: Mine},
+    {path: '/register', component: Register},
+    {path: '/cart', component: Cart},
+    {path: '/login', component: Login},
+    {path: '/password', component: Password},
     {
       path: '/hello',
       name: 'HelloWorld',
