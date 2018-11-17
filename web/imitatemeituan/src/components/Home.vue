@@ -96,7 +96,6 @@ export default {
     }
   },
   created () {
-    console.log(this.$store.state.loginStatus)
     this.$axios.get('/storeList')
       .then(res => {
         this.todayListItems = res.data

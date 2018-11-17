@@ -9,7 +9,7 @@
         <span class="mui-icon mui-icon-cart"></span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
-      <router-link class="mui-tab-item" :to="$store.state.loginStatus">
+      <router-link class="mui-tab-item" :to="'/login'">
         <span class="mui-icon mui-icon-person" ></span>
         <span class="mui-tab-label">我的</span>
       </router-link>

@@ -18,7 +18,9 @@ Vue.use(Vuex)
 let store = new Vuex.Store({
   state: {
     test: 3,
-    loginStatus: '/login'
+    user: {
+      isLogin: false
+    }
   },
   setter: {
     changeLoginStatus () {
@@ -44,8 +46,8 @@ Vue.component('commentVue', Comments)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
   store,
+  router,
   components: { App },
   template: '<App/>'
 })

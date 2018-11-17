@@ -34,11 +34,21 @@ const router = new Router({
   ]
 })
 
-// router.beforeEach((to, from, next) => {
-//   console.log(sessionStorage)
-//   console.log(from.path)
-//   console.log(to.meta)
-//   console.log(to.path)
-//   next()
-// })
+router.beforeEach((to, from, next) => {
+  console.log()
+  var allRoutes = ['/cart']
+  var isLogin = false
+  if (allRoutes.indexOf(to.path) >= 0) {
+    console.log(to.path)
+    if (!isLogin) {
+      router.push('/login')
+    }
+  }
+  if (to.path === '/login') {
+    if (isLogin) {
+      router.push('/mine')
+    }
+  }
+  next()
+})
 export default router

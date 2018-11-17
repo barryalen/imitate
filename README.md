@@ -1,9 +1,8 @@
-start step:
+vue全家桶+express+mongodb构建的模仿美团APP
 
-1. create a folder named 'data' in root disk
-
-2. run 'npm insall' in server folder
-
-3. run 'npm install' in web/imitatemeituan folder
-
-4. start server
+功能：
+首页
+新闻信息列表
+新闻详情
+评论和发布
+登录注册（coding）

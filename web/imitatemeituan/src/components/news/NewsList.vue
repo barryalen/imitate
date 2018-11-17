@@ -12,7 +12,7 @@
               <img class="mui-media-object mui-pull-left" :src="news.newsImg">
               <div class="mui-media-body">
                 <p class="mui-ellipsis">{{news.title}}</p>
-                <p class="clickAndTime"><span>发表时间：{{news.publishTime}}</span><span>点击：0次</span></p>
+                <p class="clickAndTime"><span>发表时间：{{news.publishTime}}</span></p>
               </div>
             </router-link>
           </li>
